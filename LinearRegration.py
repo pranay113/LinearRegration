@@ -1,14 +1,28 @@
-import pandas as pd
-import numpy as np
-dataset = pd.read_csv("LinearRegration.py")
-Y = dataset["Salary"]
-X = dataset["YearsExperience"]
-X = np.array(X).reshape(30,1)
-Y = np.array(Y).reshape(30,1)
-from sklearn.linear_model import LinearRegression
-mind = LinearRegression()
-mind.fit(X,Y)
-print("Weight Is :",mind.coef_)
-print("Bias Is : ",mind.intercept_)
+import pandas
+import numpy
 import joblib
-joblib.dump(mind,"model_salary_predict.pk1")
+
+from sklearn.linear_model import LinearRegression
+
+ds=pandas.read_csv("SalaryData.csv")
+
+X = ds["YearsExperience"].values.reshape(30,1)
+Y = ds["Salary"]
+
+mind = LinearRegression()
+mind.fit(X ,Y )
+
+# Predicts the output using this file
+print("\n \t \t \t***************************WELCOME***********************")
+print(" ")
+print(" ")
+output = int(input("\t \t \tEnter your exprerience :"))
+
+ans=mind.predict([[output]])
+print(" ")
+print("YOUR ESTIMATED SALARY =")
+print(ans)
+print(" ")
+
+# OR Load the model and predict using other file
+joblib.dump( mind ,"SalaryModel.pkl")
