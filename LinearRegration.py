@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-dataset = pd.read_csv("Salary_Data.csv")
+dataset = pd.read_csv("LinearRegration.py")
 Y = dataset["Salary"]
 X = dataset["YearsExperience"]
 X = np.array(X).reshape(30,1)
