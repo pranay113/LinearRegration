@@ -18,7 +18,7 @@ print(" ")
 print(" ")
 output = int(input("\t \t \tEnter your exprerience :"))
 
-ans=mind.predict([[output]])
+ans=mind.predict([[float(a)]])
 print(" ")
 print("YOUR ESTIMATED SALARY =")
 print(ans)
